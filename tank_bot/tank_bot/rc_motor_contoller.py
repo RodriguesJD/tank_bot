@@ -4,14 +4,8 @@ import RPi.GPIO as GPIO
 import os  # added so we can shut down OK
 import time  # import time module
 
-try:
-    GPIO.setup(7, GPIO.OUT)
-except RuntimeWarning:
-    GPIO.cleanup()
-
-
-
 # set GPIO numbering mode and define output pins
+GPIO.cleanup()
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(7, GPIO.OUT)
 GPIO.setup(11, GPIO.OUT)
