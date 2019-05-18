@@ -23,7 +23,7 @@ for x in range(1, 10):
 screen = curses.initscr()
 curses.noecho()
 curses.cbreak()
-screen.keypad(True)
+screen.keypad('/dev/input/event0')
 
 try:
     while True:
