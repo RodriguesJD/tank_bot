@@ -1,0 +1,9 @@
+[Unit]
+Description=tank_bot
+
+[Service]
+Type=simple
+ExecStart= /bin/bash /home/pi/Documents/tank_bot/bootup.sh
+
+[Install]
+WantedBy=multi-user.target
