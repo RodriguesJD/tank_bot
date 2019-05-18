@@ -10,7 +10,7 @@ GPIO.setup(7, GPIO.OUT)
 GPIO.setup(11, GPIO.OUT)
 GPIO.setup(13, GPIO.OUT)
 GPIO.setup(15, GPIO.OUT)
-GPIO.setup(29, GPIO.OUT)
+# GPIO.setup(29, GPIO.OUT)
 
 for x in range(1, 10):
     GPIO.output(29, False)
@@ -23,7 +23,7 @@ for x in range(1, 10):
 screen = curses.initscr()
 curses.noecho()
 curses.cbreak()
-screen.keypad('/dev/input/event0')
+screen.keypad(True)
 
 try:
     while True:
