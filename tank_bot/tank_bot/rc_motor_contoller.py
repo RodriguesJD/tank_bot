@@ -101,7 +101,7 @@ try:
                 key = str(categorize(event)).split("(")[1].split(")")[0]
                 key_press = str(categorize(event)).split("), ")[1]
                 if key == 'KEY_Q':
-                    break
+                    device_status = False
                 elif key == "KEY_UP":
                     GPIO.output(7, False)
                     GPIO.output(11, True)
