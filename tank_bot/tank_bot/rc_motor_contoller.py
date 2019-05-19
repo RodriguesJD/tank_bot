@@ -28,7 +28,7 @@ GPIO.setup(15, GPIO.OUT)
 screen = curses.initscr()
 curses.noecho()
 curses.cbreak()
-screen.keypad(True)
+screen.keypad(device)
 
 try:
     while True:
