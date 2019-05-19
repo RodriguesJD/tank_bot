@@ -97,36 +97,37 @@ device = InputDevice("/dev/input/event0") # my keyboard
 device_status = True
 try:
     while device_status:
-        if device.type == ecodes.EV_KEY:
-            key = str(categorize(device)).split("(")[1].split(")")[0]
-            key_press = str(categorize(device)).split("), ")[1]
-            if key == 'KEY_Q':
-                device_status = False
-            elif key == "KEY_UP":
-                GPIO.output(7, False)
-                GPIO.output(11, True)
-                GPIO.output(13, False)
-                GPIO.output(15, True)
-            elif key == "KEY_DOWN":
-                GPIO.output(7, True)
-                GPIO.output(11, False)
-                GPIO.output(13, True)
-                GPIO.output(15, False)
-            elif key == "KEY_RIGHT":
-                GPIO.output(7, True)
-                GPIO.output(11, False)
-                GPIO.output(13, False)
-                GPIO.output(15, True)
-            elif key == "KEY_LEFT":
-                GPIO.output(7, False)
-                GPIO.output(11, True)
-                GPIO.output(13, True)
-                GPIO.output(15, False)
-            elif key == "KEY_ENTER":
-                GPIO.output(7, False)
-                GPIO.output(11, False)
-                GPIO.output(13, False)
-                GPIO.output(15, False)
+        for event in device.read_loop():
+            if event.type == ecodes.EV_KEY:
+                key = str(categorize(event)).split("(")[1].split(")")[0]
+                key_press = str(categorize(event)).split("), ")[1]
+                if key == 'KEY_Q':
+                    break
+                elif key == "KEY_UP":
+                    GPIO.output(7, False)
+                    GPIO.output(11, True)
+                    GPIO.output(13, False)
+                    GPIO.output(15, True)
+                elif key == "KEY_DOWN":
+                    GPIO.output(7, True)
+                    GPIO.output(11, False)
+                    GPIO.output(13, True)
+                    GPIO.output(15, False)
+                elif key == "KEY_RIGHT":
+                    GPIO.output(7, True)
+                    GPIO.output(11, False)
+                    GPIO.output(13, False)
+                    GPIO.output(15, True)
+                elif key == "KEY_LEFT":
+                    GPIO.output(7, False)
+                    GPIO.output(11, True)
+                    GPIO.output(13, True)
+                    GPIO.output(15, False)
+                elif key == "KEY_ENTER":
+                    GPIO.output(7, False)
+                    GPIO.output(11, False)
+                    GPIO.output(13, False)
+                    GPIO.output(15, False)
 
 finally:
     # Close down curses properly, inc turn echo back on!
