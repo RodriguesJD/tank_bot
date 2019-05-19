@@ -70,7 +70,6 @@ from evdev import InputDevice
 #     curses.endwin()
 #     GPIO.cleanup()
 
-
 import RPi.GPIO as GPIO
 import os #added so we can shut down OK
 import time #import time module
@@ -80,17 +79,17 @@ GPIO.cleanup()
 
 #set GPIO numbering mode and define output pins
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7,GPIO.OUT)
-GPIO.setup(11,GPIO.OUT)
-GPIO.setup(13,GPIO.OUT)
-GPIO.setup(15,GPIO.OUT)
-GPIO.setup(29,GPIO.OUT)
-
-for x in range(1, 10):
-        GPIO.output(29,False)
-        time.sleep(.5)
-        GPIO.output(29,True)
-        time.sleep(1)
+GPIO.setup(7, GPIO.OUT)
+GPIO.setup(11, GPIO.OUT)
+GPIO.setup(13, GPIO.OUT)
+GPIO.setup(15, GPIO.OUT)
+# GPIO.setup(29, GPIO.OUT)
+#
+# for x in range(1, 10):
+#         GPIO.output(29,False)
+#         time.sleep(.5)
+#         GPIO.output(29,True)
+#         time.sleep(1)
 
 
 device = InputDevice("/dev/input/event0") # my keyboard
