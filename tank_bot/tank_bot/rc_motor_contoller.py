@@ -3,6 +3,9 @@ import curses
 import RPi.GPIO as GPIO
 import os  # added so we can shut down OK
 import time  # import time module
+from evdev import InputDevice
+
+device = InputDevice("/dev/input/event0")  # my keyboard
 
 GPIO.cleanup()
 
