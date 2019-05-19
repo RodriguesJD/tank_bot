@@ -76,6 +76,8 @@ import os #added so we can shut down OK
 import time #import time module
 from evdev import InputDevice, categorize, ecodes
 
+GPIO.cleanup()
+
 #set GPIO numbering mode and define output pins
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(7,GPIO.OUT)
